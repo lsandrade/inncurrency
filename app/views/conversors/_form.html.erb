@@ -1,0 +1,17 @@
+<%= form_for(@conversor) do |f| %>
+  <% if @conversor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conversor.errors.count, "error") %> prohibited this conversor from being saved:</h2>
+
+      <ul>
+      <% @conversor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
