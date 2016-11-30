@@ -43,4 +43,15 @@ class Conversor < ActiveRecord::Base
     return to_brl(json['quotes']['USDBRL'],json['quotes']['USD'+coin])
   end
 
+  def get_dates(start)
+    d = Date.parse( start.gsub(/, */, '-'))
+    d = d-6
+    dates = []
+    7.times do
+      dates.append(d.to_s)
+      d += 1
+    end
+    return dates
+  end
+
 end

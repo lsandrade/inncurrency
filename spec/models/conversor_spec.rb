@@ -64,4 +64,11 @@ RSpec.describe Conversor, type: :model do
       conversor.get_exchange_by_coin_and_date('EUR','2016-11-29').should be_within(0.05).of(3.67)
     end
   end
+
+  context "Get categories" do
+    it "Last seven days" do
+      conversor = Conversor.new
+      expect(conversor.get_dates('2016-11-30')).to eql(['2016-11-24','2016-11-25','2016-11-26','2016-11-27','2016-11-28','2016-11-29','2016-11-30'])
+    end
+  end
 end
