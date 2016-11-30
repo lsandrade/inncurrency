@@ -61,6 +61,11 @@ class ConversorsController < ApplicationController
     end
   end
 
+  def get_categories
+    @conversor = Conversor.new
+    render :json => @conversor.get_dates(Date.today.to_s)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_conversor

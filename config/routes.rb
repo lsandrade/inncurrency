@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :conversors
+  resources :conversors do
+    collection do
+      get 'get_categories'
+    end
+  end
   root 'conversors#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

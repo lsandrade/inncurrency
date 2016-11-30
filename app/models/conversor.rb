@@ -44,7 +44,7 @@ class Conversor < ActiveRecord::Base
   end
 
   def get_dates(start)
-    d = Date.parse( start.gsub(/, */, '-'))
+    d = Date.parse(start.gsub(/, */, '-'))
     d = d-6
     dates = []
     7.times do
