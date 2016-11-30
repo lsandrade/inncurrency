@@ -1,6 +1,10 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Conversors</h1>
+<h1>Bem vindo ao Inncurrency,</h1>
+<h2>Sua plataforma de conversão de moedas.</h2>
 
 <table>
   <thead>
@@ -21,5 +25,7 @@
 </table>
 
 <br>
-
-<%= link_to 'New Conversor', new_conversor_path %>
+<h3>Escolha sua moeda</h3>
+<%= link_to 'Dólar (USD)', new_conversor_path, :class => "btn btn-primary" %>
+<%= link_to 'Euro (EUR)', new_conversor_path, :class => "btn btn-success" %>
+<%= link_to 'Peso Argentino (ARS)', new_conversor_path, :class => "btn btn-warning" %>
