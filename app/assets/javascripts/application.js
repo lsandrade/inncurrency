@@ -15,7 +15,7 @@ var get_coin = function(coin){
 var loadSeries = function(coin){
   $.ajax({
     method: 'GET',
-    url: "http://localhost:3000/conversors/get_exchange/"+coin
+    url: "https://inncurrency.herokuapp.com/:3000/conversors/get_exchange/"+coin
   })
   .done(function(data)
   {
@@ -26,7 +26,7 @@ var loadSeries = function(coin){
 var loadCategories = function(){
   $.ajax({
     method: 'GET',
-    url: "http://localhost:3000/conversors/get_categories"
+    url: "https://inncurrency.herokuapp.com/:3000/conversors/get_categories"
   })
   .done(function(dates)
   {
