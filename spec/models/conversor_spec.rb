@@ -10,7 +10,7 @@ RSpec.describe Conversor, type: :model do
   context "Convert to BRL" do
     it "ARS to BRL" do
       conversor = Conversor.new
-      conversor.to_brl(3.454798,15.540096).should be_within(0.1).of(0.2167)
+      conversor.to_brl(3.454798,15.540096).should be_within(0.05).of(0.2167)
     end
   end
 
@@ -33,6 +33,27 @@ RSpec.describe Conversor, type: :model do
           \"USDARS\":15.540096
         }
       }"))
+    end
+  end
+
+  context "Get exchange by date" do
+    it "usd to brl in 29-11-2016" do
+      conversor = Conversor.new
+      exchange = conversor.get_exchange_by_date('2016-11-29')
+      exchange['quotes']['USDBRL'].should be_within(0.05).of(3.45)
+    end
+
+    it "usd to brl in 28-11-2016" do
+      conversor = Conversor.new
+      exchange = conversor.get_exchange_by_date('2016-11-28')
+      exchange['quotes']['USDBRL'].should be_within(0.05).of(3.40)
+    end
+  end
+
+  context "Get exchange by coin and date" do
+    it "ars to brl in 29-11-2016" do
+      conversor = Conversor.new
+      conversor.get_exchange_by_coin_and_date('ARS','2016-11-29').should be_within(0.05).of(0.2167)
     end
   end
 end

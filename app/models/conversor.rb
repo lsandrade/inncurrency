@@ -25,6 +25,18 @@ class Conversor < ActiveRecord::Base
     return usdbrl / currency
   end
 
-  
+  def get_exchange_by_date(date)
+    stream = open(
+      "http://apilayer.net/api/historical?"+
+      "&date="+date+
+      "&currencies=EUR,BRL,ARS"+
+      "&access_key="+@@API_KEY
+      )
+    data = stream.read
+    json = JSON.parse(data)
+    return json
+  end
+
+  def get_exchange_by_coin_and_date()
 
 end
