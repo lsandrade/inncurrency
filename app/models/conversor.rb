@@ -37,6 +37,10 @@ class Conversor < ActiveRecord::Base
     return json
   end
 
-  def get_exchange_by_coin_and_date()
+  def get_exchange_by_coin_and_date(coin,date)
+    json = get_exchange_by_date(date)
+    if coin == "USD" then return json['quotes']['USDBRL'] end
+    return to_brl(json['quotes']['USDBRL'],json['quotes']['USD'+coin])
+  end
 
 end

@@ -55,5 +55,13 @@ RSpec.describe Conversor, type: :model do
       conversor = Conversor.new
       conversor.get_exchange_by_coin_and_date('ARS','2016-11-29').should be_within(0.05).of(0.2167)
     end
+    it "usd to brl in 29-11-2016" do
+      conversor = Conversor.new
+      conversor.get_exchange_by_coin_and_date('USD','2016-11-29').should be_within(0.05).of(3.45)
+    end
+    it "eur to brl in 29-11-2016" do
+      conversor = Conversor.new
+      conversor.get_exchange_by_coin_and_date('EUR','2016-11-29').should be_within(0.05).of(3.67)
+    end
   end
 end
