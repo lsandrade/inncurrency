@@ -19,6 +19,12 @@ class Conversor < ActiveRecord::Base
       )
     data = stream.read
     json = JSON.parse(data)
-
   end
+
+  def to_brl(usdbrl,currency)
+    return usdbrl / currency
+  end
+
+  
+
 end
