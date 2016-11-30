@@ -6,26 +6,15 @@
 <h1>Bem vindo ao Inncurrency,</h1>
 <h2>Sua plataforma de conversão de moedas.</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @conversors.each do |conversor| %>
-      <tr>
-        <td><%= link_to 'Show', conversor %></td>
-        <td><%= link_to 'Edit', edit_conversor_path(conversor) %></td>
-        <td><%= link_to 'Destroy', conversor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <br>
 <h3>Escolha sua moeda</h3>
-<%= link_to 'Dólar (USD)', new_conversor_path, :class => "btn btn-primary" %>
+<!--<%= link_to 'Dólar (USD)', new_conversor_path, :class => "btn btn-primary" %>
 <%= link_to 'Euro (EUR)', new_conversor_path, :class => "btn btn-success" %>
-<%= link_to 'Peso Argentino (ARS)', new_conversor_path, :class => "btn btn-warning" %>
+<%= link_to 'Peso Argentino (ARS)', new_conversor_path, :class => "btn btn-warning" %>-->
+<button type="button" name="button1" class="btn btn-info" onclick="get_coin('USD')">Dólar (USD)</button>
+<button type="button" name="button2" class="btn btn-success" onclick="get_coin('EUR')">Euro (EUR)</button>
+<button type="button" name="button3" class="btn btn-warning" onclick="get_coin('ARS')">Peso Argentino (ARS)</button>
+
+<div id="container">
+
+</div>
