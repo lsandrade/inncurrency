@@ -54,4 +54,12 @@ class Conversor < ActiveRecord::Base
     return dates
   end
 
+  def get_exchange_formatted(coin)
+    dates = get_dates(Date.today.to_s)
+    exchanges = []
+    for date in dates do
+      exchanges.append(get_exchange_by_coin_and_date(coin,date))
+    end
+    return {name: coin, data: exchanges}
+  end
 end

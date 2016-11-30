@@ -71,4 +71,25 @@ RSpec.describe Conversor, type: :model do
       expect(conversor.get_dates('2016-11-30')).to eql(['2016-11-24','2016-11-25','2016-11-26','2016-11-27','2016-11-28','2016-11-29','2016-11-30'])
     end
   end
+
+  context "Get data formatted to highcharts" do
+    it "Get USD" do
+      conversor = Conversor.new
+      conversor.get_exchange_formatted('USD')[:data][0].should be_within(0.05).of(3.39)
+      conversor.get_exchange_formatted('USD')[:data][1].should be_within(0.05).of(3.42)
+      conversor.get_exchange_formatted('USD')[:data][6].should be_within(0.05).of(3.39)
+    end
+    it "Get EUR" do
+      conversor = Conversor.new
+      conversor.get_exchange_formatted('EUR')[:data][0].should be_within(0.05).of(3.58)
+      conversor.get_exchange_formatted('EUR')[:data][1].should be_within(0.05).of(3.62)
+      conversor.get_exchange_formatted('EUR')[:data][6].should be_within(0.05).of(3.61)
+    end
+    it "Get ARS" do
+      conversor = Conversor.new
+      conversor.get_exchange_formatted('ARS')[:data][0].should be_within(0.05).of(0.2188)
+      conversor.get_exchange_formatted('ARS')[:data][1].should be_within(0.05).of(0.2199)
+      conversor.get_exchange_formatted('ARS')[:data][6].should be_within(0.05).of(0.2167)
+    end
+  end
 end
