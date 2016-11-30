@@ -8,6 +8,7 @@ var get_coin = function(coin){
   COIN = coin;
 
   loadCategories();
+  loadSeries(coin);
   loadChart();
 };
 
@@ -66,10 +67,7 @@ var loadChart = function(){
           verticalAlign: 'middle',
           borderWidth: 0
       },
-      series: [{
-          name: COIN,
-          data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2]
-      }]
+      series: [SERIES]
   });
 
 };

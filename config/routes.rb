@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :conversors do
     collection do
       get 'get_categories'
+      get 'get_exchange/:coin', :action => :get_exchange
     end
   end
   root 'conversors#index'

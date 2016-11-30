@@ -66,9 +66,9 @@ class ConversorsController < ApplicationController
     render :json => @conversor.get_dates(Date.today.to_s)
   end
 
-  def get_exchange(coin)
+  def get_exchange
     @conversor = Conversor.new
-    render :json => @conversor.get_exchange_formatted(coin)
+    render :json => @conversor.get_exchange_formatted(params[:coin])
   end
 
   private
